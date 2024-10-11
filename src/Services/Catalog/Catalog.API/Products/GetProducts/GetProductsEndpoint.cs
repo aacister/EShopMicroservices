@@ -1,7 +1,4 @@
 ﻿
-using Catalog.API.Products.CreateProduct;
-using Microsoft.AspNetCore.Http;
-
 namespace Catalog.API.Products.GetProducts
 {
     public record GetProductsRequest(int? PageNumber=1, int? PageSize=10);
@@ -18,7 +15,7 @@ namespace Catalog.API.Products.GetProducts
                 return Results.Ok(response);
             })
             .WithName("GetProducts")
-            .Produces<CreateProductResponse>(StatusCodes.Status200OK)
+            .Produces<GetProductsResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Get Products")
             .WithDescription("Get Products");
