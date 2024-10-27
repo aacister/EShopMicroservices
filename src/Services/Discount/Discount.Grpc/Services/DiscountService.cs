@@ -9,9 +9,11 @@ namespace Discount.Grpc.Services
     public class DiscountService(DiscountContext dbContext, ILogger<DiscountService> logger)
         : DiscountProtoService.DiscountProtoServiceBase
     {
-        public override async Task<CouponModel> GetDscount(GetDiscountRequest request, ServerCallContext context)
+        public override async Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
         {
-            var coupon = await dbContext.Coupons.FirstOrDefaultAsync(x => x.ProductName == request.ProductName);
+            var coupon = await dbContext
+           .Coupons
+           .FirstOrDefaultAsync(x => x.ProductName == request.ProductName);
 
             if (coupon is null)
                 coupon = new Coupon { ProductName = "No Discount", Amount = 0, Description = "No Discount Desc" };
