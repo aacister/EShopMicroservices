@@ -1,4 +1,5 @@
-﻿using FluentValidation.AspNetCore;
+﻿using BuildingBlocks.CQRS;
+using FluentValidation.AspNetCore;
 
 namespace Basket.API.Basket.DeleteBasket
 {
